@@ -1,7 +1,6 @@
 package com.example.cardapio.food;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 import java.util.Objects;
 
@@ -18,11 +17,14 @@ public class Food {
     public Food() {
     }
 
+    public Food(FoodRequestDTO foodRequestDTO){
+        this.image = foodRequestDTO.image();
+        this.price = foodRequestDTO.price();
+        this.title = foodRequestDTO.title();
+    }
+
     public Food(Long id, String image, Integer price, String title) {
         this.id = id;
-        this.image = image;
-        this.price = price;
-        this.title = title;
     }
 
     @Override
